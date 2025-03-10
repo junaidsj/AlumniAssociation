@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Nunito', sans-serif;
+  background-image: url('https://img.freepik.com/free-photo/blue-smooth-wall-textured-background_53876-106133.jpg?w=740&t=st=1723188379~exp=1723188979~hmac=e6460cbacecba61a5d1eb203f003a16623d24002716ca6d4d5e4fc2be07ee898');
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      max-width: 500px;
+      width: 100%;
+      margin: auto; /* Automatically center the container */
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: white;
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-top: 10px;
+    }
+
+    .form-control {
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+      background-color: #f4f4f4;
+      border: 1px solid #ddd;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .form-control:focus {
+      border-color: #8f94fb;
+      box-shadow: 0 0 8px rgba(79, 92, 230, 0.3);
+      background-color: #fff;
+    }
+
+    .btn-submit { padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background-color: #00b4d8;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      width: 100%;
+     
+    }
+
+    .btn-submit:hover {
+      background-color: #0077b6;
+      box-shadow: 0 5px 15px rgba(0, 123, 255, 0.5);
+      transform: translateY(-3px);
+    
+    }
+
+    .form-check-inline {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-around;
+      color:#fff; 
+    }
+
+    .form-check-label {
+      color: black;
+    }
+
+    .form-check-input {
+      margin-right: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+
+      .btn-submit {
+        font-size: 16px;
+      }
+    }
+   
+
+  </style>
+</head>
+<body ng-app="myApp" ng-controller="MainCtrl">
+
+  <div class="container">
+    <h2>Register Here</h2>
+    <form method="post" action="/registered" onsubmit="return alert('You will be redirected to login to confirm registration')">
+      <input type="hidden" id="gender" name="gender" value="{{Gen}}">
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="fname" id="fname" placeholder="First Name" required onkeydown="return /^[a-zA-Z\s]*$/.test(event.key)">
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="sname" id="sname" placeholder="Last Name" required onkeydown="return /^[a-zA-Z\s]*$/.test(event.key)">
+      </div>
+
+      <div class="form-group">
+        <input type="email" class="form-control" name="email" placeholder="Email" required>
+      </div>
+
+      <div class="form-group">
+        <input ng-model="password" type="password" class="form-control" name="userPassword" placeholder="Enter Password" ng-required="true">
+      </div>
+
+      <div class="form-group">
+        <input ng-model="confirmPassword" type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" ng-required="true">
+        <span ng-show="password!=confirmPassword" style="color:red; font-size:12px;">Passwords do not match</span>
+      </div>
+
+      <div class="form-group">
+        <input type="date" class="form-control" id="dob" name="dob" required>
+      </div>
+
+      <div class="form-check-inline">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" ng-model="Gen" id="Male" value="Male" ng-checked="true">Male
+        </label>
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" ng-model="Gen" id="Female" value="Female">Female
+        </label>
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" ng-model="Gen" id="Others" value="Others">Others
+        </label>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter Phone" maxlength="10" required onkeydown="return /^[0-9]*$/.test(event.key)">
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="address" id="address" placeholder="Enter Address" required>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="city" id="city" placeholder="Enter City" required>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" name="landmark" id="landmark" placeholder="Enter Landmark" required>
+      </div>
+
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+  </div>
+
+</body>
+</html>

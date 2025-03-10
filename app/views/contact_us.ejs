@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Alumni Association</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+            color: #fff;
+            animation: fadeIn 1s ease-in-out;
+            background-image: url('https://img.freepik.com/free-photo/blue-smooth-wall-textured-background_53876-106133.jpg?w=740&t=st=1723188379~exp=1723188979~hmac=e6460cbacecba61a5d1eb203f003a16623d24002716ca6d4d5e4fc2be07ee898');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+        }
+
+        .hero-section {
+            padding: 60px 0;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in-out, zoomIn 1s ease-in-out;
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #00b4d8;
+            margin: 0;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .content-section {
+            padding: 40px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+            margin: 40px auto;
+            border-radius: 10px;
+            font-weight: 300;
+            animation: fadeIn 1s ease-in-out, zoomIn 1s ease-in-out;
+            max-width: 1000px;
+        }
+
+        .content-section h2 {
+            font-size: 36px;
+            font-weight: 500;
+            color: #00b4d8;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .content-section p,
+        .content-section ul {
+            font-size: 18px;
+            line-height: 1.8em;
+            color: #ddd;
+        }
+
+        .content-section ul {
+            list-style-type: disc;
+            padding-left: 40px;
+        }
+
+        .alumni-info {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .alumni-info h3 {
+            font-size: 24px;
+            color: #00b4d8;
+            margin-bottom: 10px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .alumni-info p {
+            font-size: 18px;
+            color: #ddd;
+        }
+
+        footer {
+            padding: 20px 0;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #00b4d8;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 18px;
+            color: #ddd;
+        }
+
+        footer a {
+            color: #00b4d8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hero-section">
+        <h1>About Us</h1>
+    </header>
+
+    <main class="container">
+        <section class="content-section">
+            <h2>History of the Alumni Association</h2>
+            <p>
+                Established in 1980, the Alumni Association has been the backbone of our alumni community, fostering a lifelong bond between graduates and the university. With a rich history of events, programs, and initiatives, we continue to support our alumni in their professional and personal journeys.
+            </p>
+        </section>
+
+        <section class="content-section">
+            <h2>Objectives of the Alumni Association</h2>
+            <ul>
+                <li>Foster a lifelong connection between alumni and the university.</li>
+                <li>Provide networking, learning, and career advancement opportunities.</li>
+                <li>Support the university's mission through various contributions.</li>
+                <li>Celebrate alumni achievements and societal contributions.</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Board Members</h2>
+            <div class="alumni-info">
+                <h3>John Doe - President</h3>
+                <p>Email: john.doe@alumniassociation.org</p>
+                <p>Mobile: (123) 456-7890</p>
+            </div>
+            <div class="alumni-info">
+                <h3>Jane Smith - Vice President</h3>
+                <p>Email: jane.smith@alumniassociation.org</p>
+                <p>Mobile: (987) 654-3210</p>
+            </div>
+            <div class="alumni-info">
+                <h3>Michael Johnson - Treasurer</h3>
+                <p>Email: michael.johnson@alumniassociation.org</p>
+                <p>Mobile: (555) 123-4567</p>
+            </div>
+            <div class="alumni-info">
+                <h3>Emily Davis - Secretary</h3>
+                <p>Email: emily.davis@alumniassociation.org</p>
+                <p>Mobile: (321) 654-9870</p>
+            </div>
+            <div class="alumni-info">
+                <h3>William Brown - Member-at-Large</h3>
+                <p>Email: william.brown@alumniassociation.org</p>
+                <p>Mobile: (654) 321-0987</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Alumni Contacts</h2>
+            <div class="alumni-info">
+                <h3>Olivia Wilson</h3>
+                <p>Email: olivia.wilson@gmail.com</p>
+                <p>Mobile: (789) 012-3456</p>
+            </div>
+            <div class="alumni-info">
+                <h3>Liam Taylor</h3>
+                <p>Email: liam.taylor@gmail.com</p>
+                <p>Mobile: (890) 123-4567</p>
+            </div>
+            <div class="alumni-info">
+                <h3>Ava Anderson</h3>
+                <p>Email: ava.anderson@gmail.com</p>
+                <p>Mobile: (901) 234-5678</p>
+            </div>
+            <div class="alumni-info">
+                <h3>James Thomas</h3>
+                <p>Email: james.thomas@gmail.com</p>
+                <p>Mobile: (012) 345-6789</p>
+            </div>
+            <div class="alumni-info">
+                <h3>Charlotte Jackson</h3>
+                <p>Email: charlotte.jackson@gmail.com</p>
+                <p>Mobile: (234) 567-8901</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Alumni Association - All Rights Reserved | <a href="#">Privacy Policy</a></p>
+    </footer>
+</body>
+
+</html>

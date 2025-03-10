@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/candidate.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+        body {
+            padding-top: 50px;
+           background-image: url('https://img.freepik.com/premium-photo/blue-glass-with-white-square-that-says-blue_1290686-78332.jpg?w=740');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0px 12px 48px rgba(0, 0, 0, 0.37);
+            max-width: 900px;
+            margin: auto;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: fadeIn 1.2s forwards, zoomIn 1.2s forwards;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        header .navbar {
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+        }
+
+        header .navbar-brand {
+            color: white !important;
+            font-size: 26px;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        main h1 {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #ff7f50;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        main .form-group {
+            margin-bottom: 25px;
+        }
+
+        main input,
+        main button,
+        main select {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        main input,
+        main select {
+            background: rgba(255, 255, 255, 0.85);
+            color: #333;
+        }
+
+        main button {
+            background-color: #ff7f50;
+            color: #fff;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        main button:hover {
+            background-color: #ff6347;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        main button:active {
+            background-color: #e55330;
+            transform: translateY(0) scale(1);
+        }
+
+        .highlight,
+        .latest-products {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
+            margin-top: 40px;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: fadeIn 1.2s forwards, zoomIn 1.2s forwards;
+        }
+
+        .highlight p,
+        .latest-products p {
+            color: #f0f0f0;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 300;
+        }
+
+        .images-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .images-container img {
+            max-width: 600px;
+            max-height: 350px;
+            margin: 15px;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .images-container img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        footer {
+            background-color: #333;
+            color: #f0f0f0;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+            font-size: 16px;
+            font-weight: 400;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer a {
+            color: #ff7f50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ff6347;
+        }
+
+        footer .social-icons {
+            margin-top: 20px;
+        }
+
+        footer .social-icons a {
+            margin: 0 10px;
+            font-size: 18px;
+            display: inline-block;
+            color: #f0f0f0;
+        }
+
+        footer .social-icons a:hover {
+            color: #ff7f50;
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 30px;
+            }
+
+            main h1 {
+                font-size: 28px;
+            }
+
+            main input,
+            main button,
+            main select {
+                padding: 12px;
+            }
+
+            .images-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+    <main>
+        <div class="container">
+            <h1>Alumni Registration</h1>
+            <form method="post" action="/adminlogin">
+                <div class="form-group">
+                    <input type="text" name="eid" id="eid" placeholder="Register No." required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="ename" id="ename" placeholder="Candidate Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="eaddress" id="eaddress" placeholder="Candidate Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="edesignation" id="edesignation" placeholder="Designation" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="eexperience" id="eexperience" placeholder="Experience (No. of Years)" required onkeydown="return (event.keyCode > 47 && event.keyCode < 58) || (event.keyCode == 8) || (event.keyCode == 9)">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="esalary" id="esalary" placeholder="Salary" required onkeydown="return (event.keyCode > 47 && event.keyCode < 58) || (event.keyCode == 8) || (event.keyCode == 9)">
+                </div>
+                <div class="form-group">
+                    <input type="text" name="phone" id="phone" placeholder="Enter Phone" maxlength="10" required onkeydown="return (event.keyCode > 47 && event.keyCode < 58) || (event.keyCode == 8) || (event.keyCode == 9)">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" placeholder="Enter Email" required>
+                </div>
+                <div class="form-group">
+                    <label>Date Course Completed</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" id="eCategory" name="eCategory">
+                        <option selected disabled>Course Completed</option>
+                        <option value="BBA">Bachelor of Business Administration</option>
+                        <option value="BCA">Bachelor of Computer Applications</option>
+                        <option value="BCom">Bachelor of Commerce</option>
+                        <option value="BSc">Bachelor of Science</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary" ng-click="submitData()">Submit Data</button>
+                <div class="form-group">
+                    <input type="text" name="geteid" id="geteid" placeholder="Enter Candidate Register No." required>
+                </div>
+                <button type="button" class="btn btn-info" ng-click="getemployee()">Get Candidate</button>
+                <button type="button" class="btn btn-warning" ng-click="updateemployee()">Update Candidate</button>
+                <button type="button" class="btn btn-danger" ng-click="deleteemployee()">Delete Candidate</button>
+            </form>
+            <form method="get" action="/admin">
+                <button type="submit" class="btn btn-default">Logout</button>
+            </form>
+        </div>
+    </main>
+
+    <div class="images-container">
+        <img src="https://img.freepik.com/premium-photo/online-application-form-modish-registration_31965-550629.jpg?w=900" alt="Image 1">
+        <img src="https://img.freepik.com/free-vector/loudspeaker-megaphone-with-lightings-red_1284-58706.jpg?w=740&t=st=1723140146~exp=1723140746~hmac=77e76c0aee893b69c5c253f8d4dc4cc93f351fed6389ba35970e87b89da1c724" alt="Image 2">
+    </div>
+
+    <div class="highlight">
+        <h2>Highlights</h2>
+        <p>Alumni details provide comprehensive information about graduates, including their professional and academic accomplishments. This helps maintain strong connections and fosters networking opportunities among alumni and the institution.</p>
+    </div>
+
+    <div class="images-container">
+        <img src="https://img.freepik.com/premium-photo/hand-holding-stick-with-word-update-update-renew-concept_694006-2500.jpg?w=740" alt="Image 3">
+        <img src="https://img.freepik.com/free-photo/latest-news-subscribe-update_53876-120299.jpg?t=st=1723140083~exp=1723143683~hmac=41dc9f7b14c3f2ee442e41b476aa184b1ae4d7f705d6c0c61b41b92a1cde3b45&w=740" alt="Image 4">
+    </div>
+
+    <div class="latest-products">
+        <h2>Latest Products</h2>
+        <p>The latest products available in the Alumni Association include exclusive alumni merchandise, event tickets, professional development resources, and unique networking tools designed to keep alumni engaged and connected.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Alumni Association. All rights reserved.</p>
+        <p><a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
+        <div class="social-icons">
+            <a href="#"><i class="glyphicon glyphicon-facebook"></i></a>
+            <a href="#"><i class="glyphicon glyphicon-twitter"></i></a>
+            <a href="#"><i class="glyphicon glyphicon-linkedin"></i></a>
+            <a href="#"><i class="glyphicon glyphicon-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Success Stories</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://img.freepik.com/free-photo/blue-smooth-wall-textured-background_53876-106133.jpg?t=st=1723229353~exp=1723232953~hmac=60258414f3ba79bdc8375db2e88513ebebd7d10ac250afabd794506ca5cab786&w=740');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            padding: 10px 0;
+        }
+
+        .navbar-brand,
+        .navbar-nav > li > a {
+            color: #fff !important;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .navbar-brand:hover,
+        .navbar-nav > li > a:hover {
+            color: #00b4d8 !important;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-top: 80px;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        h2.title {
+            font-size: 42px;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+
+        .btn-default {
+            background-color: #00b4d8;
+            color: #fff;
+            font-size: 18px;
+            padding: 15px 30px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-default:hover {
+            background-color: #0077b6;
+            color: #fff;
+            box-shadow: 0 12px 20px rgba(0, 119, 182, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .alumni-stories {
+            margin-top: 30px;
+        }
+
+        .story {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInUp 0.7s ease-in-out forwards;
+        }
+
+        .story:nth-child(1) { animation-delay: 0.3s; }
+        .story:nth-child(2) { animation-delay: 0.4s; }
+        .story:nth-child(3) { animation-delay: 0.5s; }
+        .story:nth-child(4) { animation-delay: 0.6s; }
+        .story:nth-child(5) { animation-delay: 0.7s; }
+
+        .story:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .story img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        .story-content {
+            flex: 1;
+        }
+
+        .story h4 {
+            margin: 0;
+            font-size: 26px;
+            color: #333;
+        }
+
+        .story p {
+            margin: 10px 0 0;
+            color: #777;
+            font-size: 16px;
+        }
+
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Alumni Success Stories</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <div class="alumni-stories">
+            <h2 class="title">Alumni Stories and Achievements</h2>
+            
+            <div class="story">
+                <img src="https://imgs.search.brave.com/hIS-p7x7WpYiGfriXozB4oLQMc_u1j7jJnse-BISrvU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMxLnNyY2RuLmNv/bS93b3JkcHJlc3Mv/d3AtY29udGVudC91/cGxvYWRzLzIwMTkv/MDMvU3VpdHMtSmVz/c2ljYS1QZWFyc29u/LmpwZw" alt="Jessica Pearson">
+                <div class="story-content">
+                    <h4>Jessica Pearson - Class of 2009</h4>
+                    <p>Jessica is now a partner at a prestigious law firm, handling high-profile cases that have made headlines globally.</p>
+                </div>
+            </div>
+
+            <div class="story">
+                <img src="https://imgs.search.brave.com/Ts1hMjhHsc_Jv0NJotDvIiF00J-UQU4u5JyEhfcUwJ0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzgxLzk4/L2M1LzgxOThjNWMy/MjRlMDk1ZDYwMTRh/MDFiNmU1MGYyMzkw/LmpwZw" alt="Harvey Spectre">
+                <div class="story-content">
+                    <h4>Harvey Spectre - Class of 2011</h4>
+                    <p>Harvey is recognized as one of the top litigators in the country, known for his sharp mind and unmatched success rate.</p>
+                </div>
+            </div>
+
+            <div class="story">
+                <img src="https://imgs.search.brave.com/ITbswR7Eu0wK9ZT60GNVB2PFtYhZtCbzPx6tNWNUstY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mYWN0/cy5uZXQvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjMvMDgvNDkt/ZmFjdHMtYWJvdXQt/c2FyYWgtcmFmZmVy/dHktMTY5MTkxMDAy/Mi5qcGc" alt="Dona Johnson">
+                <div class="story-content">
+                    <h4>Dona Johnson - Class of 2014</h4>
+                    <p>Dona is a renowned fashion designer, whose collections are featured in major fashion weeks around the world.</p>
+                </div>
+            </div>
+
+            <div class="story">
+                <img src="https://imgs.search.brave.com/jxOwHSuMrF0GlO4xV0T4717NeQFIcGOGL4gw394OuOw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dXNhbmV0d29yay5j/b20vc2l0ZXMvdXNh/YmxvZy9maWxlcy8y/MDIzLzAyL3N1aXRz/LXRydWUtc3Rvcnkt/cGF0cmljay1qLWFk/YW1zLmpwZw" alt="Mike Ross">
+                <div class="story-content">
+                    <h4>Mike Ross - Class of 2016</h4>
+                    <p>Mike is a leading researcher in renewable energy, contributing to significant advancements in solar power technology.</p>
+                </div>
+            </div>
+
+            <div class="story">
+                <img src=" https://imgs.search.brave.com/0d8DaLkETkbsoAbom6gSvf8ZznZirQRvzeICnyNqV6Y/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/cGFzdGVtYWdhemlu/ZS5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMjMvMDkvMDUy/MjM1MDMvdHYtcmV3/aW5kLXN1aXRzLWxv/dWlzLWxpdHQtbWFp/bi5qcGc" alt="Louis Litt">
+                <div class="story-content">
+                    <h4>Louis Litt - Class of 2016</h4>
+                    <p>Louis is a senior partner at one of the most prestigious law firms, known for his tenacity and legal acumen.</p>
+                </div>
+            </div>
+
+            <div class="story">
+                <img src="https://imgs.search.brave.com/F_JJAGwB_TShdsuaGSo9ylmYzQwa_leS2PtOLV3pheI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZXRy/by5jby51ay93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMS8wNi9H/ZXR0eUltYWdlcy04/NDEzNDQ2MjQuanBn/P3F1YWxpdHk9OTAm/c3RyaXA9YWxsJnpv/b209MSZyZXNpemU9/NjQ0LDQyOQ" alt="Rachel Zane">
+                <div class="story-content">
+                    <h4>Rachel Zane - Class of 2019</h4>
+                    <p>Rachel is a successful social media influencer, using her platform to advocate for mental health awareness.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="footer">
+        <p>&copy; 2024 Alumni Association. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Participation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/reqStall.js"></script>
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-photo/blue-smooth-wall-textured-background_53876-106133.jpg?t=st=1723229353~exp=1723232953~hmac=60258414f3ba79bdc8375db2e88513ebebd7d10ac250afabd794506ca5cab786&w=740');
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #fff; /* Make the body text color white */
+        }
+
+        .navbar {
+          background-color: rgba(0, 0, 0, 0.8);/* Darker background for better readability */
+            padding: 15px 30px;
+            border-bottom: 3px solid #3498db;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            font-size: 30px;
+            color: #fff; /* White color for the navbar title */
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            margin-top: 180px;
+            padding: 50px;
+            background: linear-gradient(145deg, #2c3e50, #34495e);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Slightly darker shadow for depth */
+            max-width: 700px;
+            width: 100%;
+        }
+
+        .signup-form h1 {
+            font-size: 36px;
+            color: #fff; /* White color for the form title */
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-align: center; /* Centered the title */
+            animation: fadeIn 1.5s ease;
+        }
+
+        .signup-form input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #00bfff;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff; /* White color for the input text */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .signup-form input:focus {
+            outline: none;
+            background-color:black;
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            border-color: #fff;
+        }
+
+        .signup-form button {
+            width: 100%;
+            padding: 15px;
+            border-radius: 50px;
+            background: linear-gradient(to right, #3498db, #2980b9); /* Gradient button color */
+            color: #fff; /* White color for the button text */
+            border: none;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.5);
+        }
+
+        .signup-form button:hover {
+            background: linear-gradient(to right, #2980b9, #3498db);
+            box-shadow: 0 12px 30px rgba(52, 152, 219, 0.7);
+            transform: translateY(-3px);
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            color: #fff; /* White color for the footer text */
+            text-align: center;
+            border-top: 3px solid #3498db;
+            margin-top: 50px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 16px; /* Adjusted font size for better readability */
+        }
+
+        .footer a {
+            color: #00bfff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar h1, .footer p {
+            animation: fadeIn 1.5s ease; /* Smooth fade-in animation */
+        }
+
+        .container {
+            animation: slideInUp 1s ease; /* Slide-in effect for the container */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+
+    <header class="navbar">
+        <h1>Event Participation</h1>
+    </header>
+
+    <main class="container">
+        <div class="signup-form">
+            <h1>Event Participation</h1>
+            <form method="post" action="">
+                <input type="text" name="ecode" id="ecode" placeholder="Enter event code" required>
+                <input type="text" name="cname" id="cname" placeholder="Contact Name" required>
+                <input type="email" name="email" id="email" placeholder="Contact Email" required>
+                <input type="text" name="compname" id="compname" placeholder="Company Name" required>
+                <input type="text" name="phone" id="phone" placeholder="Contact phone" onkeydown="return (event.keyCode > 47 && event.keyCode < 58) || (event.keyCode == 8) || (event.keyCode == 9)" maxlength="10" required>
+                <button type="button" class="btn btn-default" ng-click="storeDetails()" style="background-color:black ; border-radius :30px;">Confirm Participation</button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Event Participation. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+</body>
+
+</html>

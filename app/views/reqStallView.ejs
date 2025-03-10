@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Participation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/reqStallView.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            background-color: #0d0d0d;
+            background-image: url('https://img.freepik.com/premium-photo/blue-glass-with-white-square-that-says-blue_1290686-78332.jpg?w=740');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color:rgba(0, 0, 0, 0.5);
+            border-bottom: 2px solid #00aaff;
+            padding: 15px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            color: #00aaff;
+            font-size: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .navbar-right {
+            margin-right: 10px;
+        }
+
+        .navbar-right a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-right a:hover {
+            color: #00aaff;
+        }
+
+        .container {
+            margin-top: 100px;
+            padding: 30px;
+            background-color: #1a1a1a;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            max-width: 1000px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #00aaff;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #aaa;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: none;
+            background-color: #2a2a2a;
+            color: #fff;
+            font-size: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]::placeholder {
+            color: #666;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-default {
+            background-color: #00aaff;
+            color: #fff;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-default:hover {
+            background-color: #0088cc;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 136, 204, 0.6);
+        }
+
+        .table {
+            margin-top: 20px;
+            background-color: #2a2a2a;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1.5s ease-in-out;
+            color: #fff;
+        }
+
+        .table th,
+        .table td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 15px;
+            border-top: 1px solid #444;
+        }
+
+        .table thead {
+            background-color: #00aaff;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #1a1a1a;
+        }
+
+        .table-striped tbody tr:hover {
+            background-color: #333;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 24px;
+            }
+
+            .btn-default {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+    <!-- Navbar -->
+    <nav class="navbar">
+        <span class="navbar-brand">Corporate Events</span>
+       
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>List of Participants</h3>
+                    <form method="post" action="">
+                        <label for="getecode">Event Code</label>
+                        <input type="text" name="getecode" id="getecode" placeholder="Event code" required />
+                        <button type="button" class="btn btn-default" ng-click="getDetails()">Get Participation Details</button>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Event Code</th>
+                                    <th scope="col">Contact Name</th>
+                                    <th scope="col">Contact Email</th>
+                                    <th scope="col">Company Name</th>
+                                    <th scope="col">Contact Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="event in events">
+                                    <th scope="row">{{event.ecode}}</th>
+                                    <td>{{event.cname}}</td>
+                                    <td>{{event.email}}</td>
+                                    <td>{{event.compname}}</td>
+                                    <td>{{event.phone}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

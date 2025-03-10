@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Events</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/price-range.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/corpEvent.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            background-color: #0c0c24;
+            background-image: url('https://img.freepik.com/premium-photo/blue-glass-with-white-square-that-says-blue_1290686-78332.jpg?w=740');
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 50px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.37);
+            max-width: 900px;
+            margin: 20px auto;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        h1.trt {
+            font-size: 42px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #e0e0e0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #f1f1f1;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.85);
+            color: #333;
+            font-size: 16px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-default {
+            background-color: #1e90ff;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .btn-default:hover {
+            background-color: #1c7ccf;
+            box-shadow: 0 6px 18px rgba(30, 144, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .navbar {
+            background-color: #1e90ff;
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar a {
+            color: #fff;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .navbar a:hover {
+            background-color: #1c7ccf;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 91, 204, 0.5);
+        }
+
+        .images-container {
+            position: relative;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .images-container img {
+            max-width: 80%;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            opacity: 0.85;
+            filter: grayscale(20%);
+        }
+
+        .images-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        .images-container .view-participation-btn {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 50px;
+            font-size: 18px;
+            padding: 12px 24px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.5);
+        }
+
+        .images-container .view-participation-btn:hover {
+            background-color: #218838;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .highlight,
+        .latest-products {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .highlight h2,
+        .latest-products h2 {
+            font-size: 28px;
+            color: #f7f7f7;
+            margin-bottom: 20px;
+        }
+
+        .highlight p,
+        .latest-products p {
+            color: #e0e0e0;
+            font-size: 18px;
+        }
+
+        .mor {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .mor a.old {
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 50px;
+            font-size: 22px;
+            width: 80%;
+            padding: 15px;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .mor a.old:hover {
+            background-color: #218838;
+            color: #fff;
+            box-shadow: 0 6px 18px rgba(40, 167, 69, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .ret {
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1.trt {
+                font-size: 32px;
+            }
+
+            input,
+            button,
+            select {
+                padding: 12px;
+            }
+
+            .images-container img {
+                max-width: 100%;
+            }
+
+            .highlight h2,
+            .latest-products h2 {
+                font-size: 24px;
+            }
+
+            .highlight p,
+            .latest-products p {
+                font-size: 16px;
+            }
+
+            .mor a.old {
+                width: 100%;
+                font-size: 18px;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+    <h1 class="trt">Corporate Events Details</h1>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form method="post" action="/billing" ng-submit="store()" name="service">
+                        <div class="form-group">
+                            <label for="ecode">Event Code</label>
+                            <input type="text" name="ecode" id="ecode" placeholder="Event code" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Event Name</label>
+                            <input type="text" name="ename" id="ename" placeholder="Event Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select Event Type</label>
+                            <select class="browser-default custom-select" id="etype" name="etype">
+                                <option selected disabled>Select Event Type</option>
+                                <option value="Conferences">Conferences</option>
+                                <option value="Seminar">Seminar</option>
+                                <option value="Webinars">Webinars</option>
+                                <option value="Board Meetings">Board Meetings</option>
+                                <option value="others">Others</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Select City</label>
+                            <select class="browser-default custom-select" id="city" name="city">
+                                <option selected disabled>Select City</option>
+                                <optgroup label="USA">
+                                    <option value="New york">New York</option>
+                                    <option value="Los Angeles">Los Angeles</option>
+                                    <option value="Chicago">Chicago</option>
+                                    <option value="Pheonix">Phoenix</option>
+                                    <option value="Philadelphia">Philadelphia</option>
+                                    <option value="San Antonio">San Antonio</option>
+                                    <option value="columbus">Columbus</option>
+                                    <option value="san-francisco">San Francisco</option>
+                                    <option value="seattle">Seattle</option>
+                                    <option value="denver">Denver</option>
+                                    <option value="washington-dc">Washington, D.C.</option>
+                                    <option value="boston">Boston</option>
+                                    <option value="others">Others</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="area">Select Area</label>
+                            <select class="browser-default custom-select" id="area" name="area">
+                                <option selected disabled>Select Area</option>
+                                <optgroup label="USA">
+                                    <option value="manhattan">Manhattan, New York</option>
+                                    <option value="brooklyn">Brooklyn, New York</option>
+                                    <option value="hollywood">Hollywood, Los Angeles</option>
+                                    <option value="venice">Venice, Los Angeles</option>
+                                    <option value="downtown-la">Downtown LA, Los Angeles</option>
+                                    <option value="loop">The Loop, Chicago</option>
+                                    <option value="lincoln-park">Lincoln Park, Chicago</option>
+                                    <option value="uptown-houston">Uptown, Houston</option>
+                                    <option value="midtown-houston">Midtown, Houston</option>
+                                    <option value="scottsdale">Scottsdale, Phoenix</option>
+                                    <option value="tempe">Tempe, Phoenix</option>
+                                    <option value="center-city">Center City, Philadelphia</option>
+                                    <option value="university-city">University City, Philadelphia</option>
+                                    <option value="downtown-san-antonio">Downtown, San Antonio</option>
+                                    <option value="alamo-heights">Alamo Heights, San Antonio</option>
+                                    <option value="downtown-sf">Downtown, San Francisco</option>
+                                    <option value="mission-district">Mission District, San Francisco</option>
+                                    <option value="soho">SoHo, San Francisco</option>
+                                    <option value="downtown-seattle">Downtown, Seattle</option>
+                                    <option value="capitol-hill">Capitol Hill, Seattle</option>
+                                    <option value="ballard">Ballard, Seattle</option>
+                                    <option value="downtown-denver">Downtown, Denver</option>
+                                    <option value="cherry-creek">Cherry Creek, Denver</option>
+                                    <option value="lohi">LoHi, Denver</option>
+                                    <option value="georgetown">Georgetown, Washington, D.C.</option>
+                                    <option value="dupont-circle">Dupont Circle, Washington, D.C.</option>
+                                    <option value="adams-morgan">Adams Morgan, Washington, D.C.</option>
+                                    <option value="back-bay">Back Bay, Boston</option>
+                                    <option value="beacon-hill">Beacon Hill, Boston</option>
+                                    <option value="south-end">South End, Boston</option>
+                                    <option value="others">Others</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="loc">Event Location</label>
+                            <input type="text" name="loc" id="loc" placeholder="Event Location" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Entry Fee</label>
+                            <input type="text" name="fee" id="fee" placeholder="Entry Fee" onkeydown="return (event.keyCode > 47 && event.keyCode < 58) || (event.keyCode == 8) || (event.keyCode == 9)" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Event Start Date</label>
+                            <input type="date" id="sdate" name="sdate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Event End Date</label>
+                            <input type="date" id="edate" name="edate" required>
+                        </div>
+
+                        <button type="button" class="btn btn-default" ng-click="storeDetails()">Add Event Details</button>
+
+                        <div class="form-group" style="margin-top: 40px;">
+                            <label>Enter Event Code</label>
+                            <input type="text" name="getecode" id="getecode" placeholder="Event code" required>
+                        </div>
+
+                        <button type="button" class="btn btn-default" ng-click="getDetails()">Get Event Details</button>
+                        <button type="button" class="btn btn-default" ng-click="updateDetails()">Update Event Details</button>
+                        <button type="button" class="btn btn-default" ng-click="deleteDetails()">Delete Event Details</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="mor">
+        <a href="/requestStallView" class="old"><p class="ret">View Participation</p></a>
+    </div>
+
+    <div class="images-container">
+        <img src="https://img.freepik.com/free-photo/people-taking-part-business-event_23-2149333734.jpg?t=st=1723150040~exp=1723153640~hmac=7fdcdaa91b4ce8a740612f9b62254b3232c3355bfc279ebad6e322a2f7ccf346&w=740" alt="Image 1">
+    </div>
+
+    <div class="highlight">
+        <h2>Updates</h2>
+        <p>Alumni details provide comprehensive information about graduates, including their professional and academic accomplishments. This helps maintain strong connections and fosters networking opportunities among alumni and the institution.</p>
+    </div>
+
+    <div class="images-container">
+        <img src="https://img.freepik.com/premium-photo/business-people-dining-restaurant_1106939-152169.jpg?w=740" alt="Image 1">
+    </div>
+
+    <div class="latest-products">
+        <h2>Important News on Seminars</h2>
+        <p>Stay updated with the latest developments in seminars. Discover crucial information about upcoming sessions, keynote speakers, and topics that are shaping the industry. Don't miss out on essential announcements that could impact your professional growth and networking opportunities.</p>
+    </div>
+</body>
+
+</html>

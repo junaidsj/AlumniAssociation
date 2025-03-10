@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alumni Event</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/prettyPhoto.css" rel="stylesheet">
+  <link href="css/price-range.css" rel="stylesheet">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+  <title>Alumni Events </title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+    body {
+        font-family: 'Montserrat', sans-serif;
+        padding-top: 50px;
+        background-color: #1b1b2f;
+        background-image: url('https://img.freepik.com/premium-photo/blue-glass-with-white-square-that-says-blue_1290686-78332.jpg?w=740');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        color: #fff;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    h1 {
+        font-size: 60px;
+        color: #00aaff;
+        text-align: center;
+        margin-bottom: 40px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        animation: fadeInDown 1s ease-in-out;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+      max-width: 900px;
+      margin: 30px auto;
+      animation: fadeInUp 1s ease-in-out;
+  }
+
+      label {
+          font-weight: 600;
+          color: #f0f0f0;
+          margin-bottom: 8px;
+          display: inline-block;
+      }
+
+      input[type="text"],
+      input[type="date"],
+      select {
+          width: 2  200%;
+          padding: 10px 10px;
+          margin-bottom: 20px;
+          border: none;
+          border-radius: 8px;
+          background-color: rgba(255, 255, 255, 0.1);
+          color: #fff;
+          font-size: 16px;
+          transition: all 0.3s ease;
+      }
+
+      input::placeholder {
+          color: #ccc;
+      }
+
+      input:focus,
+      select:focus {
+          outline: none;
+          background-color: rgba(255, 255, 255, 0.2);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Add spacing between the buttons and the input field */
+  form label {
+    margin-top: 30px;
+    display: block;
+    color: #f0f0f0;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  form input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    }
+
+  form input[type="text"]::placeholder {
+    color: #ccc;
+  }
+
+  form input[type="text"]:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Style the buttons */
+  form .btn-default {
+    background-color: #00aaff ;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 20px; /* Add space between the buttons */
+  }
+
+  form .btn-default:hover {
+    background-color: darkblue;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(40, 167, 69, 0.5);
+  }
+
+  form .btn-default:not(:last-child) {
+    margin-bottom: 20px; /* Ensure space between consecutive buttons */
+  }
+
+      .images-container {
+          text-align: center;
+          margin-top: 40px;
+      }
+
+      .images-container img {
+          max-width: 300px;
+          margin: 15px;
+          border-radius: 10px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+          filter: grayscale(30%);
+      }
+
+      .images-container img:hover {
+          transform: scale(1.1);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+          filter: grayscale(0%);
+      }
+
+      .alumni-events,
+      .highlight,
+      .latest-products {
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 30px;
+          border-radius: 15px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+          margin-top: 40px;
+          text-align: center;
+          animation: fadeIn 1.5s ease-in-out;
+      }
+
+      .alumni-events p,
+      .highlight p,
+      .latest-products p {
+          font-size: 20px;
+          line-height: 1.6;
+          color: #ddd;
+          margin-bottom: 20px;
+      }
+
+      @keyframes fadeInDown {
+          from {
+              opacity: 0;
+              transform: translateY(-50px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(50px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      @keyframes fadeIn {
+          from {
+              opacity: 0;
+          }
+          to {
+              opacity: 1;
+          }
+      }
+
+</style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="js/prodEvent.js"></script>
+</head>
+<h1 style="color: #fff;text-align:center;font-size:80px;margin-top:-50px">Alumni Events</h1>
+<body ng-app="myApp" ng-controller="MainCtrl">
+  <div class="alumni-events">
+    <p>
+        
+        Our alumni events are a vibrant way to reconnect with former classmates and network with industry professionals, offering opportunities for mentorship, career development, and personal growth.<br><br>
+        Join us to stay updated on the latest industry trends and expand your professional network, while being part of a thriving community that values collaboration and lifelong learning.
+    </p>
+</div>
+
+  
+
+  <div class="images-container">
+    
+    <img src="https://img.freepik.com/free-photo/medium-shot-happy-friends-celebrating-together_23-2149383069.jpg?t=st=1723142148~exp=1723145748~hmac=5280aa17c851cf690d89b3444ae3ea6a9d2b352bec4d1df58ab6c7b3dee5693e&w=740" alt="Image 1">
+    <img src="https://img.freepik.com/premium-photo/group-graduates-joyfully-toss-their-caps-air-graduation-ceremony-graduation-ceremony-with-students-cap-gowns-tossing-their-caps-air_538213-109205.jpg?w=740" alt="Image 2">
+    <img src="https://img.freepik.com/free-photo/medium-shot-men-celebrating-4th-july_23-2149383083.jpg?t=st=1723142111~exp=1723145711~hmac=12185e978c0556fbf41951827c8c093725581e0d45a4e35e1b656c22a0db3bda&w=740" alt="Image 3">
+   
+    
+</div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4 text-center">
+        
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <form method="post" action="/billing" ng-submit="store()" name="service">
+          <h3 style="text-align: center;">Alumni Event Details</h3>
+          
+
+          <label for="ecode">Event Code</label>
+          <input type="text" name="ecode" id="ecode" placeholder="Event code" required />
+
+          <label for="ename">Event Name</label>
+          <input type="text" name="ename" id="ename" placeholder="Event Name" required />
+
+          <label for="cname">Company Name</label>
+          <input type="text" name="cname" id="cname" placeholder="Company Name" required />
+
+          <label for="pname">Product Name</label>
+          <input type="text" name="pname" id="pname" placeholder="Product Name" required />
+
+          <label for="etype">Event Type</label>
+          <select class="browser-default custom-select" id="etype" name="etype">
+            <option selected>Select Event Type</option>
+            <option value="networking">Networking</option>
+            <option value="reunion">Re-union</option>
+            <option value="cultural">Cultural Events</option>
+            <option value="social">Social Events</option>
+            <option value="educational">Educational Events</option>
+            <option value="virtual">Virtual Events</option>
+            <option value="community-service">Community Service</option>
+            <option value="sporting">Sporting Events</option>
+            <option value="others">Others</option>
+          </select>
+
+          <label for="city">City</label>
+          <select class="browser-default custom-select" id="city" name="city">
+            <option selected>Select City</option>
+            <optgroup label="USA">
+              <option value="New york">New York</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Chicago">Chicago</option>
+              <option value="Pheonix">Phoenix</option>
+              <option value="Philadelphia">Philadelphia</option>
+              <option value="San Antonio">San Antonio</option>
+              <option value="Columbus">Columbus</option>
+              <option value="San Francisco">San Francisco</option>
+              <option value="Seattle">Seattle</option>
+              <option value="Denver">Denver</option>
+              <option value="Washington DC">Washington, D.C.</option>
+              <option value="Boston">Boston</option>
+              <option value="Others">Others</option>
+            </optgroup>
+          </select>
+
+          <label for="area">Area</label>
+          <select class="browser-default custom-select" id="area" name="area">
+            <option selected>Select Area</option>
+            <optgroup label="USA">
+              <option value="manhattan">Manhattan, New York</option>
+              <option value="brooklyn">Brooklyn, New York</option>
+              <option value="hollywood">Hollywood, Los Angeles</option>
+              <option value="venice">Venice, Los Angeles</option>
+              <option value="downtown-la">Downtown LA, Los Angeles</option>
+              <option value="loop">The Loop, Chicago</option>
+              <option value="lincoln-park">Lincoln Park, Chicago</option>
+              <option value="uptown-houston">Uptown, Houston</option>
+              <option value="midtown-houston">Midtown, Houston</option>
+              <option value="scottsdale">Scottsdale, Phoenix</option>
+              <option value="tempe">Tempe, Phoenix</option>
+              <option value="center-city">Center City, Philadelphia</option>
+              <option value="university-city">University City, Philadelphia</option>
+              <option value="downtown-san-antonio">Downtown, San Antonio</option>
+              <option value="alamo-heights">Alamo Heights, San Antonio</option>
+              <option value="downtown-sf">Downtown, San Francisco</option>
+              <option value="mission-district">Mission District, San Francisco</option>
+              <option value="soho">SoHo, San Francisco</option>
+              <option value="downtown-seattle">Downtown, Seattle</option>
+              <option value="capitol-hill">Capitol Hill, Seattle</option>
+              <option value="ballard">Ballard, Seattle</option>
+              <option value="downtown-denver">Downtown, Denver</option>
+              <option value="cherry-creek">Cherry Creek, Denver</option>
+              <option value="lohi">LoHi, Denver</option>
+              <option value="georgetown">Georgetown, Washington, D.C.</option>
+              <option value="dupont-circle">Dupont Circle, Washington, D.C.</option>
+              <option value="adams-morgan">Adams Morgan, Washington, D.C.</option>
+              <option value="back-bay">Back Bay, Boston</option>
+              <option value="beacon-hill">Beacon Hill, Boston</option>
+              <option value="south-end">South End, Boston</option>
+              <option value="others">Others</option>
+            </optgroup>
+          </select>
+
+          <label for="loc">Event Location</label>
+          <input type="text" name="loc" id="loc" placeholder="Event Location" required />
+
+          <label for="fee">Entry Fee</label>
+          <input type="text" name="fee" id="fee" placeholder="Entry Fee" onkeydown="return (event.keyCode > 47 && event.keyCode < 58) || (event.keyCode == 8) || (event.keyCode == 9)" required />
+
+          <label for="sdate">Event Start Date</label>
+          <input type="date" id="sdate" name="sdate" required />
+
+          <label for="edate">Event End Date</label>
+          <input type="date" id="edate" name="edate" required />
+
+          <button type="button" class="btn btn-default" ng-click="storeDetails()" >Add Event Details</button> <br>
+    <label style="margin-top: 40px;">Enter Event Code</label>
+    <input type="text" name="getecode" id="getecode" placeholder="Event code" required value="" /> <br>
+    <button type="button" class="btn btn-default" ng-click="getDetails()" >Get Event Details</button> <br>
+    <button type="button" class="btn btn-default" ng-click="updateDetails()" >Update Event Details</button> <br>
+    <button type="button" class="btn btn-default" ng-click="deleteDetails()" >Delete Event Details</button>
+        </form>
+       
+  
+      
+       
+      </div>
+    </div>
+  </div>
+
+
+
+</body>
+</html>

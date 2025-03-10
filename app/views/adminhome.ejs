@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Home - Alumni Association</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/premium-photo/blue-glass-with-white-square-that-says-blue_1290686-78332.jpg?w=740');
+            background-size: cover;
+            background-position: center;
+            color: #f0f0f0;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInDown {
+            0% {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInRight {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .navbar-custom {
+            background-color: #000;
+            color: #fff;
+            padding: 15px 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            font-weight: bold;
+            font-size: 18px;
+            border-bottom: 2px solid #007bff;
+            animation: slideInDown 1s ease-in-out;
+        }
+
+        .navbar-custom .nav-link {
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #007bff;
+            transform: translateY(-2px);
+        }
+
+        .navbar-brand {
+            font-size: 30px;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #007bff;
+        }
+
+        .main-header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            margin: 40px 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .main-header h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        .main-header p {
+            font-size: 20px;
+            color: #ddd;
+        }
+
+        .content {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            margin: 20px;
+            padding: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .sidebar {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            color: #ffffff;
+            flex: 1 1 300px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: slideInLeft 1.5s ease-in-out;
+        }
+
+        .sidebar h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar p {
+            font-size: 18px;
+            color: #f0f0f0;
+            line-height: 1.8;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            flex: 2;
+            animation: slideInRight 1.5s ease-in-out;
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        footer {
+            background-color: #000;
+            padding: 20px 0;
+            text-align: center;
+            color: #f0f0f0;
+            border-top: 2px solid #007bff;
+            margin-top: 40px;
+            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        @media (max-width: 767px) {
+            .navbar-custom .nav-link {
+                padding: 10px 15px;
+                margin: 0 5px;
+            }
+
+            .navbar-brand {
+                font-size: 25px;
+            }
+
+            .main-header h1 {
+                font-size: 32px;
+            }
+
+            .main-header p {
+                font-size: 16px;
+            }
+
+            .sidebar h2 {
+                font-size: 22px;
+            }
+
+            .sidebar p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">Alumni Association</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('registerForm').submit();">Register to Alumni</a>
+                    <form id="registerForm" method="post" action="/candidate" style="display: none;"></form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('corpEventForm').submit();">Corporate Event</a>
+                    <form id="corpEventForm" method="post" action="/corpEvent" style="display: none;"></form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('prodEventForm').submit();">Alumni Event</a>
+                    <form id="prodEventForm" method="post" action="/prodEvent" style="display: none;"></form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logoutForm').submit();">Logout</a>
+                    <form id="logoutForm" method="get" action="/admin" style="display: none;"></form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="main-header">
+        <h1>Administrator Home</h1>
+        <p>Welcome to the Alumni Association Portal. Stay connected with the community and explore upcoming events.</p>
+    </header>
+
+    <div class="content">
+        <div class="sidebar">
+            <h2>Latest Updates</h2>
+            <p>Stay connected with the alumni network and explore our new features.</p>
+            <p>Update your profile to stay in touch with fellow alumni and get the latest news.</p>
+            <p>Contribute your ideas for future events and help shape our alumni activities.</p>
+            <p>The Alumni Association fosters lifelong connections between graduates and their alma mater.</p>
+        </div>
+
+        <div class="image-gallery">
+            <img src="https://img.freepik.com/premium-photo/silhouettes-students-celebration-education-graduation-student-success-learning-concept-ceremony-university_43157-4032.jpg?w=740" alt="Graduation Image 1">
+            <img src="https://img.freepik.com/free-vector/illustration-university-graduates_53876-18433.jpg?t=st=1723220736~exp=1723224336~hmac=5430ef2b64af08108eac8de7885cab35340810efa049fc0cf04d24a4ed4990af&w=826" alt="Graduation Image 2">
+            <img src="https://img.freepik.com/premium-photo/group-students-taking-photo-graduation-day_880763-14981.jpg?w=826" alt="Group Graduation Image 1">
+            <img src="https://img.freepik.com/premium-photo/free-vector-student-graduation-cap-with-gold-tassel-ribbon_880763-14544.jpg?w=826" alt="Graduation Cap Image">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Alumni Association - All Rights Reserved</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Association</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-photo/blue-smooth-wall-textured-background_53876-106133.jpg?t=st=1723229353~exp=1723232953~hmac=60258414f3ba79bdc8375db2e88513ebebd7d10ac250afabd794506ca5cab786&w=740');
+            color: #ffffff;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 15px 50px;
+            border-bottom: 3px solid #00b4d8;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+            font-size: 20px;
+            z-index: 1000;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            color: #00b4d8 !important;
+            font-size: 34px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #00b4d8 !important;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: center;
+            flex: 1;
+        }
+
+        .navbar-nav > li > a {
+            color: #f0f0f0 !important;
+            font-weight: 600;
+            padding: 15px 30px;
+            font-size: 24px;
+            letter-spacing: 1.2px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .navbar-nav > li > a:hover,
+        .navbar-nav > li.active > a {
+            background-color: #00b4d8 !important;
+            color: #ffffff !important;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
+            border-radius: 50px;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.85);
+            border-radius: 20px;
+            padding: 60px;
+            max-width: 1000px;
+            width: 100%;
+            margin-top: 150px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+            animation: fadeInUp 1.5s ease, zoomIn 1.5s ease;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            color: #ffffff;
+            text-align: center;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .intro p {
+            font-size: 20px;
+            color: #ddd;
+        }
+
+        .sidebar {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            color: #f0f0f0;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar h2 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .sidebar p {
+            font-size: 18px;
+            color: #ddd;
+            line-height: 1.8;
+        }
+
+        .images-container {
+            text-align: center;
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .images-container img {
+            max-width: 450px;
+            max-height: 250px;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            object-fit: cover;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+        }
+
+        .images-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #f0f0f0;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+            font-size: 18px;
+        }
+
+        .footer a {
+            color: #00b4d8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .navbar-nav > li > a {
+                font-size: 18px;
+                padding: 10px 20px;
+            }
+
+            .container {
+                padding: 40px;
+            }
+
+            .sidebar h2 {
+                font-size: 24px;
+            }
+
+            .sidebar p {
+                font-size: 16px;
+            }
+
+            .images-container img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div style="text-align: center; padding-bottom: 10px;">
+                <!-- Optional Header Content -->
+            </div>
+            <ul class="nav navbar-nav" style="display: flex; justify-content: space-around; flex-grow: 1;">
+                <li style="display: inline-block;">
+                    <form method="post" action="/corpEventView" style="margin: 0;">
+                        <button type="submit" class="btn btn-link" style="color:#fff; font-size:22px; padding: 15px 30px; text-transform: uppercase;">
+                            Corporate Events💼
+                        </button>
+                    </form>
+                </li>
+                <li style="display: inline-block;">
+                    <form method="post" action="/prodEventView" style="margin: 0;">
+                        <button type="submit" class="btn btn-link" style="color:#fff; font-size:22px; padding: 15px 30px; text-transform: uppercase;">
+                            Alumni Events🎓
+                        </button>
+                    </form>
+                </li>
+                <li style="display: inline-block;">
+                    <form method="post" action="/orders" style="margin: 0;">
+                        <button type="submit" class="btn btn-link" style="color:#fff; font-size:22px; padding: 15px 30px; text-transform: uppercase;">
+                            Events📅
+                        </button>
+                    </form>
+                </li>
+                <li style="display: inline-block;">
+                    <form method="post" action="/homepageredirection" style="margin: 0;">
+                        <button type="submit" class="btn btn-link" style="color:#fff; font-size:22px; padding: 15px 30px; text-transform: uppercase;">
+                            Achievements🏆
+                        </button>
+                    </form>
+                </li>
+                <li style="display: inline-block;">
+                    <form method="post" action="/contactus" style="margin: 0;">
+                        <button type="submit" class="btn btn-link" style="color:#fff; font-size:22px; padding: 15px 30px; text-transform: uppercase;">
+                            About Us📖
+                        </button>
+                    </form>
+                </li>
+                <li style="display: inline-block;">
+                    <form method="get" action="/" style="margin: 0;">
+                        <button type="submit" class="btn btn-link" style="color:#fff; font-size:22px; padding: 15px 30px; text-transform: uppercase;">
+                            Logout🚪
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="intro">
+            <h1>Welcome to the Alumni Association Portal 🎉</h1>
+            <p>Connecting alumni, sharing memories, and building the future together.</p>
+        </div>
+
+        <div class="images-container">
+            <img src="https://img.freepik.com/premium-photo/joyful-university-graduates-cap-gown-sunlight-celebratory-outdoor-gathering_444642-25943.jpg?w=826" alt="Alumni Image 1">
+            <img src="https://img.freepik.com/premium-photo/group-graduates-throwing-their-caps-air_639314-1203.jpg?w=740" alt="Alumni Image 2">
+        </div>
+
+        <div class="sidebar">
+            <h2>Latest Updates for You... 📢</h2>
+            <p><strong>Welcome, Alumni! :</strong> We are excited to share updates from our alumni community. Connect with your fellow graduates and stay informed about upcoming events, achievements, and more!</p>
+            <p><strong>Recent Alumni Achievements: </strong> John Doe (Batch of 2015) has been recognized as one of the top innovators in the tech industry, making significant contributions to AI development.</p>
+            <p><strong>Upcoming Alumni Meet: </strong> Join us for the Annual Alumni Meet on September 15th, 2024. It's a great opportunity to reconnect, share experiences, and network with other alumni.</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2024 Alumni Association. All rights reserved. | <a href="#">Privacy Policy</a> 🔒</p>
+    </div>
+
+</body>
+
+</html>

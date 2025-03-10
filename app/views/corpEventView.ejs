@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Events</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/price-range.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/corpEventView.js"></script>
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-photo/blue-smooth-wall-textured-background_53876-106133.jpg?w=740&t=st=1723229352~exp=1723229952~hmac=6d1d7d3f58cab1e90bab8e5864618515a5248b1f7cb93f95198e68c97a6eb526');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 3px solid #00b4d8;
+            padding: 15px 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-header h1 {
+            font-size: 50px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            animation: fadeInUp 1s ease-in-out;
+            text-align: center;
+            margin-top: 120px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        h1.ret {
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .participate-btn {
+            background-color: #00b4d8;
+            color: #ffffff;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .participate-btn:hover {
+            background-color: #0077b6;
+            color: #ffffff;
+            box-shadow: 0 12px 20px rgba(0, 119, 182, 0.6);
+        }
+
+        select {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 20px;
+            font-size: 16px;
+            background-color: #ffffff;
+            color: #343a40;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            background-color: #f1f1f1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #ffffff;
+            color: #343a40;
+        }
+
+        table thead {
+            background-color: #00b4d8;
+            color: #ffffff;
+        }
+
+        table th,
+        table td {
+            padding: 15px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        table tbody tr {
+            transition: background-color 0.3s ease;
+        }
+
+        table tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #00b4d8;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .footer a {
+            color: #00b4d8;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 767px) {
+            .navbar-header h1 {
+                font-size: 24px;
+            }
+
+            h1.ret {
+                font-size: 28px;
+            }
+
+            select {
+                font-size: 14px;
+            }
+
+            table th,
+            table td {
+                padding: 10px;
+            }
+
+            .btn-block {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+       
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+
+    <header class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <h1 ><b>Corporate Events Details</b></h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1 class="ret">Click Here To Participate⏬</h1>
+            <form method="post" action="/requestStall">
+                <button type="submit" class="btn participate-btn">Participate</button>
+            </form>
+
+            <h1 class="ret"><u>List of Corporate Events</u></h1>
+
+            <div class="row">
+                <form method="post" action="/billing" ng-submit="store()" name="service" class="col-lg-12">
+
+                    <select id="getetype" name="getetype" class="custom-select">
+                        <option selected>Select Event Type</option>
+                        <option value="Conferences">Conferences</option>
+                        <option value="Seminar">Seminar</option>
+                        <option value="Webinars">Webinars</option>
+                        <option value="Board Meetings">Board Meetings</option>
+                        <option value="others">Others</option>
+                    </select>
+                    <button type="button" class="btn btn-info btn-block" ng-click="getDetails()">Get Event Details</button>
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Event Code</th>
+                                <th scope="col">Event Name</th>
+                                <th scope="col">Event Type</th>
+                                <th scope="col">Event City</th>
+                                <th scope="col">Event Area</th>
+                                <th scope="col">Event Location</th>
+                                <th scope="col">Entry Fee</th>
+                                <th scope="col">Event Start</th>
+                                <th scope="col">Event End</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr mdbTableCol ng-repeat="event in events">
+                                <th scope="row">{{event.ecode}}</th>
+                                <td>{{event.ename}}</td>
+                                <td>{{event.etype}}</td>
+                                <td>{{event.city}}</td>
+                                <td>{{event.area}}</td>
+                                <td>{{event.loc}}</td>
+                                <td>{{event.fee}}</td>
+                                <td>{{event.sdate}}</td>
+                                <td>{{event.edate}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Corporate Events. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+</body>
+
+</html>

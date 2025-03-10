@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumni Event</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="js/prodEventView.js"></script>
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/free-photo/blue-smooth-wall-textured-background_53876-106133.jpg?w=740&t=st=1723229353~exp=1723232953~hmac=60258414f3ba79bdc8375db2e88513ebebd7d10ac250afabd794506ca5cab786');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 30px;
+            border-bottom: 3px solid #4e54c8;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar h1 {
+            font-size: 28px;
+            color: #4e54c8;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 120px;
+            animation: fadeIn 1s ease-in-out;
+            margin-bottom: 50px;
+        }
+
+        h1.yut {
+            font-size: 48px;
+            font-weight: 700;
+            color: #4e54c8;
+            text-align: center;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .thumbnail {
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        h3 {
+            font-size: 28px;
+            color: whites;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        select {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            margin-bottom: 20px;
+            font-size: 16px;
+            background-color: #f1f1f1;
+            color: #333;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        select:focus {
+            outline: none;
+            background-color: #e0e0e0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-default {
+            background-color: #4e54c8;
+            color: #ffffff;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 25px;
+            text-transform: uppercase;
+        }
+
+        .btn-default:hover {
+            background-color: #3a3fbe;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .table-striped {
+            color: #333;
+            background-color: #fff;
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-striped th,
+        .table-striped td {
+            padding: 15px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 16px;
+        }
+
+        .table-striped th {
+            background-color: #4e54c8;
+            color: #fff;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 30px;
+            text-align: center;
+            color: #fff;
+            border-top: 3px solid #4e54c8;
+            box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        .footer a {
+            color: #4e54c8;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 767px) {
+            h1.yut {
+                font-size: 36px;
+            }
+
+            h3 {
+                font-size: 24px;
+            }
+
+            .btn-default {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body ng-app="myApp" ng-controller="MainCtrl">
+
+    <header class="navbar">
+        <h1 style="color: #fff; font-size:50px"> View Alumni Events Details</h1>
+    </header>
+
+    <main>
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="https://img.freepik.com/premium-photo/family-reunion-illustration-with-festive-background_1296313-4583.jpg?w=826" alt="Event Image 1">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="https://img.freepik.com/premium-photo/soccer-game-with-number-21-back-it_1042554-6359.jpg?w=826" alt="Event Image 2">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="thumbnail">
+                        <img src="https://img.freepik.com/premium-photo/captivating-backgrounds-creative-visuals-content-creation-enhance-your-live-stream-experience_1020495-85954.jpg?w=826" alt="Event Image 3">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <form method="post" action="/userhome2" ng-submit="store()" name="service">
+                    <div class="col-lg-12">
+                        <h3>List of Alumni Events</h3>
+                        <select class="browser-default custom-select" id="getetype" name="getetype">
+                            <option selected>Select Event Type</option>
+                            <option value="networking">Networking</option>
+                            <option value="re-union">Re-union</option>
+                            <option value="cultural">Cultural Events</option>
+                            <option value="social">Social Events</option>
+                            <option value="educational">Educational Events</option>
+                            <option value="virtual">Virtual Events</option>
+                            <option value="community">Community service</option>
+                            <option value="sporting">Sporting Events</option>
+                            <option value="others">Others</option>
+                        </select>
+                        <button type="button" class="btn btn-default" ng-click="getDetails()">Get Event Details</button>
+
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Event Code</th>
+                                    <th scope="col">Event Name</th>
+                                    <th scope="col">Company Name</th>
+                                    <th scope="col">Product Name</th>
+                                    <th scope="col">Event Type</th>
+                                    <th scope="col">Event City</th>
+                                    <th scope="col">Event Area</th>
+                                    <th scope="col">Event Location</th>
+                                    <th scope="col">Entry Fee</th>
+                                    <th scope="col">Event Start</th>
+                                    <th scope="col">Event End</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr mdbTableCol ng-repeat="event in events">
+                                    <th scope="row">{{event.ecode}}</th>
+                                    <td>{{event.ename}}</td>
+                                    <td>{{event.cname}}</td>
+                                    <td>{{event.pname}}</td>
+                                    <td>{{event.etype}}</td>
+                                    <td>{{event.city}}</td>
+                                    <td>{{event.area}}</td>
+                                    <td>{{event.loc}}</td>
+                                    <td>{{event.fee}}</td>
+                                    <td>{{event.sdate}}</td>
+                                    <td>{{event.edate}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Alumni Event. All rights reserved. | <a href="#">Privacy Policy</a></p>
+    </footer>
+
+</body>
+
+</html>
